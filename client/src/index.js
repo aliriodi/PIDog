@@ -5,7 +5,7 @@ import App from './App';
 /**Herramienta google para medir rendimiento */
 import reportWebVitals from './reportWebVitals';
 //Codigo Alirio
-/**Herramienta para trabajr con rutas de React */
+/**Herramienta para trabajar con rutas de React */
 import { BrowserRouter } from 'react-router-dom';
 /**Para poder usar el store donde inyecto cambios y renderiza 
  * nuevamente en caso de ser necesario */
@@ -17,7 +17,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
          <BrowserRouter>
-              <App />
+           <App /> 
          </BrowserRouter>
     </Provider>
   </React.StrictMode>,

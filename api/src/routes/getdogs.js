@@ -107,8 +107,8 @@ array3 = array2.map(sweetItem => {
     return  {
             id:sweetItem.id, 
             name:sweetItem.name, 
-            heigth:sweetItem.heigth ,
-            weight:sweetItem.weight,
+            height:{metric:sweetItem.height} ,
+            weight:{metric:sweetItem.weight},
             life_span:sweetItem.life_span,
             temperament:outdogIdTemp[sweetItem.id-1].temperaments,
             from:outdogIdTemp[sweetItem.id-1].from

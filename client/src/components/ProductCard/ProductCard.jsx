@@ -1,28 +1,26 @@
 import React from 'react';
 //import { useDispatch, useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+//import { useDispatch } from "react-redux";
 
+import './ProductCard.css'
 //import { useParams } from "react-router-dom";
 
 import { Link } from "react-router-dom";
-import { deleteProduct } from "../../redux/actions";
+//import { deleteProduct } from "../../redux/actions";
 
-  // FIJENSE DE HACERLO SI O SI CON FUNCTIONAL COMPONENT! SI NO LOS TEST NO PASAN.
-
-
-const ProductCard = (props) => {
   
-  const dispatch = useDispatch();
-  const handleOnClick = (e) => {e.preventDefault();
-  dispatch(deleteProduct(props.id))}
+const ProductCard = (props) => {
+      
   return (
     <div>
-    <button onClick={(e) => handleOnClick(e)}>x</button>
-    <Link to={`/dogs/${props.id}`}></Link>
+    
+    <Link to={`/dogs/${props.name}`}>  </Link>
+   
     <h3>{props.name}</h3>
-    <img src={props.image} alt={props.name} />
-    <p>Weight: {props.Weight.metric}</p>
-    <p>Height: ${props.height.metric}</p>
+    <img className="image" src={props.image}  alt={props.name}/>
+    <p>Temperament: {props.temperament}</p>
+    <p>Weight: {props.weight}</p>
+    <p>Height: {props.height}</p>
 
     </div>
   );

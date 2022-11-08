@@ -1,0 +1,13 @@
+.image{
+    max-width: 18%;
+   height: auto;
+}
+.container1 {
+  /* or inline-flex */
+  display: flex; 
+  /* | row-reverse | column | column-reverse;*/
+  flex-direction: row; 
+}
+.container2{
+  display: flex; 
+}

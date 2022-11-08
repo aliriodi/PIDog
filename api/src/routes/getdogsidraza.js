@@ -48,7 +48,7 @@ else {
          let array2 = array1.map(sweetItem => {
            return {id:sweetItem.id, 
                    name:sweetItem.name, 
-                   heigth: {metric:sweetItem.heightMin+' - '+sweetItem.heightMax},
+                   height: {metric:sweetItem.heightMin+' - '+sweetItem.heightMax},
                    weight:{metric:sweetItem.weightMin+' - '+sweetItem.weightMax},
                    life_span:sweetItem.oldYearMin +' - '+sweetItem.oldYearMax}         
        })
@@ -110,7 +110,7 @@ array3 = array2.map(sweetItem => {
     return  {
             id:sweetItem.id, 
             name:sweetItem.name, 
-            heigth:sweetItem.heigth ,
+            height:sweetItem.height ,
             weight:sweetItem.weight,
             life_span:sweetItem.life_span,
             temperament:outdogIdTemp[sweetItem.id-1].temperaments,

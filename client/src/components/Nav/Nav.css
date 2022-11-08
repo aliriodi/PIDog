@@ -1,0 +1,32 @@
+.letter {
+    color:rgb(243, 25, 25);
+    background-color: black;
+    }
+.letter2 {
+        color:rgb(243, 25, 25);
+        background-color: black;  
+    }
+    .navbar-brand{
+        text-align: center;
+        color: blue;
+       
+    }
+#Alirio {
+    text-align: right;
+        margin-right: 20px;
+        width:80px;
+        height:80px;
+}
+.navbar-dark {
+             background-color: black;
+             text-decoration: aliceblue;
+}
+.active{
+    font-size:35px;
+    
+}
+
+.general{
+    text-align: center;
+   
+}

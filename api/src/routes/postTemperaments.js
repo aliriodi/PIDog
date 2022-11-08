@@ -14,11 +14,18 @@ const postTemperaments = async (req,res) => {
     //acomodando el string para luego transformar el string
     //array  y poder escribirlo uno a uno las temperamentos
      let temperament3 = temperament.split(',');
-     temperament3[0]=temperament3[0].slice(1);
+     //Quitando el 1er caracter
+    //  temperament3[0]=temperament3[0].slice(1);
+
      const long = temperament3.length;
-     temperament3[long-1] = temperament3[long-1].slice(0,-1);
+     //quitando el ultimo caracter
+    //  temperament3[long-1] = temperament3[long-1].slice(0,-1);
      let temperament2 = undefined;
-    for(let i=0;i<long;i++){
+     //Para quitar los espacios en blanco en caso de que exista
+     for(let i=0;i<long;i++){
+      if(temperament3[i][0]===" "){temperament3[i]=temperament3[i].slice(1);};
+     } 
+     for(let i=0;i<long;i++){
      temperament2 = temperament3[i] ;
      //Si el temperamento existe no lo escribas
      const checkTemperament = await Temperament.findAll(
