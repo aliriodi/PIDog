@@ -14,15 +14,11 @@ export class Home extends Component {
   }
   
   render() {
-    const dogs2 =[];
-    function pasarLista(perro, indice) {
-      dogs2.push(perro);
-      ;}
+    
   
        return (
       <div class="flex-container"> 
-
-       <div class="flex-item">         
+              
         { 
         this.props.dogs &&
           this.props.dogs.slice(8*(this.props.pagination.idPageNow-1),
@@ -40,7 +36,7 @@ export class Home extends Component {
               />
             );
           })}
-         </div>
+         
       </div>
     );
   }

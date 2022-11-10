@@ -16,6 +16,7 @@ getdogs = async (req,res) => {
           {where: {name:name},
                  attributes: ['id',
                         'name',
+                        'image',
                         'heightMin',
                         'heightMax',
                         'weightMin',
@@ -39,9 +40,10 @@ getdogs = async (req,res) => {
                                 //DogId y Temperamentos
          //acomodando el Json para que se parezca al de API dog
          let array2 = array1.map(sweetItem => {
-           return {id:sweetItem.id, 
+           return { image:{url:sweetItem.image},
+                   id:sweetItem.id, 
                    name:sweetItem.name, 
-                   heigth: {metric:sweetItem.heightMin+' - '+sweetItem.heightMax},
+                   height: {metric:sweetItem.heightMin+' - '+sweetItem.heightMax},
                    weight:{metric:sweetItem.weightMin+' - '+sweetItem.weightMax},
                    life_span:sweetItem.oldYearMin +' - '+sweetItem.oldYearMax}
             
@@ -105,10 +107,11 @@ try{
 /* */
 array3 = array2.map(sweetItem => {
     return  {
-            id:sweetItem.id, 
-            name:sweetItem.name, 
-            height:{metric:sweetItem.height} ,
-            weight:{metric:sweetItem.weight},
+            id:sweetItem.id,
+            name:sweetItem.name,
+            image:sweetItem.image, 
+            height:sweetItem.height ,
+            weight:sweetItem.weight,
             life_span:sweetItem.life_span,
             temperament:outdogIdTemp[sweetItem.id-1].temperaments,
             from:outdogIdTemp[sweetItem.id-1].from

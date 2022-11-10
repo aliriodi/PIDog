@@ -40,6 +40,7 @@ const postTemperaments = async (req,res) => {
       // numero    temperamento2
      // { where:{ temperament:temperament2 } }
    // ); 
+   //res.send('temperamento existe No se Crea')
 }
 else {
   //creando temperamentos 
@@ -59,12 +60,14 @@ else {
   //Agregando temperamentId a mi arreglo de IDs de temperamentos
  // temperamentId.push(temperamentoIDs[0].dataValues.id);
   //console.log(temperamentId)
+ 
 } 
 catch (error) {
   res.send(error); } 
 /*cerrando else if de temperamento existe*/};
 /* cerrando ciclo for insercion Temperametos*/}
-res.json();
+res.json('Temperamentos creados sin repeticion');
+
 }
 
 module.exports = postTemperaments;

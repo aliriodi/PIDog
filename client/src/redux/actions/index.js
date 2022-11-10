@@ -28,9 +28,30 @@ export const getAllDogs = () => {
     //+process.env.API_TOKEN
 
     return fetch("https://api.thedogapi.com/v1/breeds?api_key="+process.env.API_TOKEN)
-      .then((response) => response.json())
-      .then((json) => { dispatch({type: GET_ALL_DOGS,payload: json});
-      });
+    .then((response) => response.json())
+   .then((json) => {
+        return  {json1: json[json.length - 1].id,
+             json: json}})
+      .then((salida)=> fetch('http://localhost:3001/dogs')
+                       .then((response) => response.json())
+                       .then((json)=>{
+                                     return  {json1:salida.json1,
+                                       jsond1:salida.json,
+                                       json2:(json[0]!==undefined)?json[json.length - 1].id:null,
+                                       jsond2:(json[0]!==undefined)? json : null }})
+      .then((objmaster)=> { if(objmaster.jsond2) {for(let i=0;i<objmaster.jsond2.length;i++)
+                            {objmaster.jsond2[i].id +=objmaster.json1;
+                              objmaster.jsond1.push(objmaster.jsond2[i])}
+                            }
+                          // console.log(objmaster.json1)
+                          // console.log(objmaster.json2)
+                          // console.log(objmaster.jsond1)
+                          // console.log(objmaster.jsond2) 
+                          return objmaster.jsond1
+                        } ))
+        //.then((json)=>console.log(json))                
+                        .then((json) =>  dispatch({type: GET_ALL_DOGS,payload: json}))
+                      
   };
 };
 
@@ -74,25 +95,6 @@ export const CreateDog =  (values) => {
 
 
 export const movepage = (pagination) => {
-  // let [aux] =[pagination.idPagei[1],
-  //             pagination.idPagei[2],
-  //             pagination.idPagei[3]]
-  // if(pagination.iddirect==='back'){
-  //   pagination.iddirect='';
-  //   pagination.idPagei[1]=pagination.idPageTo+1; 
-  //   pagination.idPagei[2]=pagination.idPageTo+1;
-  //   pagination.idPagei[3]=pagination.idPageTo-1;
-  // }
-  // if(pagination.idPageNow === pagination.idPageTo){
-  //   pagination.idPagei[1]=pagination.idPageTo+2; 
-  //   pagination.idPagei[2]=pagination.idPageTo;
-  //   pagination.idPagei[3]=pagination.idPageTo+1;}
-  // else if(pagination.idPageTo > pagination.idPagei[2] && pagination.idPageTo !== pagination.idPageMax){ 
-  //   pagination.idPagei[1]=pagination.idPageTo-1; 
-  //   pagination.idPagei[2]=pagination.idPageTo;
-  //   pagination.idPagei[3]=pagination.idPageTo+1;}
-    
-  // else {/*pagination.idPageNow = pagination.idPageTo*/};
   return {
   type: MOVE_PAGE,
   payload: pagination, 

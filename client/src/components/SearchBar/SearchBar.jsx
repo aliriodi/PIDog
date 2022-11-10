@@ -1,12 +1,12 @@
 import React , { useState } from "react";
-//import {/*Link, Routes, Route,*/ useNavigate} from 'react-router-dom';
-//import { useNavigate } from "react-router"
-import {connect} from 'react-redux';
+import {connect,useSelector } from 'react-redux';
 import { getDogDetail } from "../../redux/actions";
+
 //import React, { useState, useEffect } from 'react';
 
 export  function SearchBar() {
   const [searchInput, setSearchInput] = useState("");
+  const dogs = useSelector((state) => state.dogs)
   const redirect = (redirectUrl) => {
     window.location = redirectUrl;
   };
@@ -15,7 +15,9 @@ export  function SearchBar() {
         <form onSubmit={(e) => {
       e.preventDefault();
       //alert(searchInput)
-      return    redirect('/dogs/'+searchInput);
+      if( !dogs.filter(property => property.name===searchInput ).length)
+      { return redirect ('/dogs/noExists') }
+      else{ return redirect('/dogs/'+searchInput); }
      // redirect('/dogs/'+searchInput);
      // useNavigate('/dogs/'+searchInput);
     }}> 
@@ -33,7 +35,7 @@ export  function SearchBar() {
 }
 
 export const mapStateToProps = (state) => {
-  return { dogDetail: state.dogDetail };
+  return { dogs:state.dogs };
 };
 export const mapDispatchToProps = (dispatch) => {
   return {
@@ -41,4 +43,4 @@ export const mapDispatchToProps = (dispatch) => {
   };
 ;}
 
-export default connect(mapStateToProps, /*mapDispatchToProps*/)(SearchBar);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

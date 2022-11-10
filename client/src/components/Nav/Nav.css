@@ -1,19 +1,43 @@
+.general-container{ 
+    display: flex;
+    flex-direction:column;
+    justify-content:  baseline;
+   /* flex-wrap: wrap ;*/
+  /* flex-flow:column ; /*  column wrap  or row wrap*/
+    /*justify-content:space-evenly; /*justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;*/
+    /*align-items: stretch;
+ */  
+}
+.box1-item {
+    border-width: 3px;
+        border-style: solid;
+        border-color: rgb(200, 20, 20); 
+    align-items: normal; 
+    margin-left: 5%;
+    margin-right: auto;
+}
+.box1{
+   /*  border-width: 3px;
+        border-style: solid;
+        border-color: rgb(200, 20, 20); */
+
+}
 .letter {
     color:rgb(243, 25, 25);
     background-color: black;
     }
-.letter2 {
-        color:rgb(243, 25, 25);
+.box2 {
+        color:rgb(184, 29, 29);
         background-color: black;  
     }
     .navbar-brand{
-        text-align: center;
+        
         color: blue;
        
     }
 #Alirio {
-    text-align: right;
-        margin-right: 20px;
+   
+       
         width:80px;
         height:80px;
 }
@@ -22,14 +46,10 @@
              text-decoration: aliceblue;
 }
 .active{
-    font-size:35px;
-    
+   
+    font-size:35px; 
 }
 
-.general{
-    text-align: center;
-   
-}
 .pageidNow{
     background-color: #555555;
     color: white;

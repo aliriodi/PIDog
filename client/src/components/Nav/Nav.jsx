@@ -6,7 +6,7 @@ import { getAllDogs, movepage } from "../../redux/actions";
 import SearchBar from '../SearchBar/SearchBar.jsx';
 import Logo from './feet.jpg';
 import Filtro from './filter.jpg';
-
+import background from './background.jpg'
 import './Nav.css'
 
 
@@ -22,11 +22,16 @@ export  class Nav extends Component {
     this.Ira4 = this.Ira4.bind(this);
     this.Ultimo22   = this.Ultimo22.bind(this) ;
     this.Avanzar   = this.Avanzar.bind(this) ;
-    this.idPageMax = this.idPageMax.bind(this)
+    this.idPageMax = this.idPageMax.bind(this);
+    /* this.ORDEN1 = this.ORDEN1.bind(this);*/
      }
 
      idPageMax() {return Math.ceil(this.props.dogs.length/8)}
      /** */   
+     /* ORDEN1() {
+      const b = this.props.dogs(((a) => a.this.props.dogs.name));
+
+     } */
     Retornar1() {
       //Llamo la funcion de dispatch de mapDispatchToProps
       //y asigno nuevos valores
@@ -176,16 +181,18 @@ export  class Nav extends Component {
 
             return (
              
-           <div className="general">
+           <div className="general-container">
             { this.setState = this.setState.bind(this)}
               <nav className="navbar-dark" >
-                <img id="Alirio" src={Logo} alt='Dogfeet' className="d-inline-block" />           
-              <h1 className="navbar-brand">Dogs Skill    <SearchBar    /> </h1>   
-             
+                <img className="box1" id="Alirio" src={Logo} alt='Dogfeet'  />           
+              <div className="box1-item">Dogs Skill    <SearchBar    /> </div>   
+             <div className="box1-item">
                <NavLink  className="letter" to="/Home">Home</NavLink> "   "
                <NavLink  className="letter" to="/dogs/create/">Create Dog</NavLink>
+               </div> 
+               <div className="box1-item">
                <Route exact path="/Home"  >
-               <h3> <p  className="letter2">
+              
                <img id="Alirio" src={Filtro} alt='Dogfeet' className="d-inline-block" /> 
                <button className="pageid" onClick={()=>this.Retroceder()}> {'<== BACK'}</button>   
                <button  className={(this.props.pagination.idPagei[0]===this.props.pagination.idPageNow)?"pageidNow":"pageid"}  onClick= {()=>this.Retornar1()}> {this.props.pagination.idPagei[0]} </button>  ... 
@@ -194,13 +201,14 @@ export  class Nav extends Component {
                <button className={(this.props.pagination.idPagei[3]===this.props.pagination.idPageNow)?"pageidNow":"pageid"}  onClick={()=>this.Ira4()}>       {this.props.pagination.idPagei[3]} </button>  ... 
                <button  className={(this.props.pagination.idPagei[4]===this.props.pagination.idPageNow)?"pageidNow":"pageid"} onClick={()=>this.Ultimo22()}>   {this.idPageMax()} </button>
                <button  className="pageid"  onClick={()=>this.Avanzar()}>    {'NEXT ==>'}</button> 
-               </p></h3>
+               {/*<button  className="pageid"  onClick={()=>this.ORDEN1()}>    {'ORDEN ASCENDENTE'}</button> */}
+             <p></p>
                </Route>
-                <p > <button >   {this.props.pagination.idPageNow} </button> </p>          
-                <p > <button >   { } </button> </p>          
-
+               </div>
               </nav>              
-              
+              <p  background-image= {'./backgropund.jpg'}>  </p>
+              <div style={{ backgroundImage: `url(${background})` }}>
+       </div>
                </div>
         )
     }

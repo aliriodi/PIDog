@@ -1,0 +1,23 @@
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    Justify-content:center;
+    flex-wrap: wrap ;
+    flex-flow:row wrap; /*  column wrap  or row wrap*/
+    justify-content:space-evenly; /*justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;*/
+    align-items: Stretch ; /*align-items: stretch | flex-start | flex-end | center | baseline;    */
+}
+    .flex-item {
+       /* -webkit-box-flex: 2 0 0;
+        flex: 2 0 0;*/
+        border-width: 3px;
+        border-style: solid;
+        border-color: black;}
+    .image{
+        width: 1000px;
+       height: auto;
+    }
+    .temperament{
+        text-align: center;
+        text-justify: inter-character;  
+    }

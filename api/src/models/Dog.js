@@ -11,39 +11,40 @@ module.exports = (sequelize) => {
           }, 
     image: {
       type: DataTypes.STRING,
-      //allowNull: false,
+      defaultValue: 'https://img.freepik.com/foto-gratis/retrato-grupo-adorables-cachorros_53876-64778.jpg',
+      allowNull: true,
            },
     heightMax: {
       type: DataTypes.SMALLINT,
       //Esto lo hice porque el test no pasaba mi posicion es
-     //allowNull: false,
-      allowNull: true,
+      allowNull: false,
+      //allowNull: true,
            },
     heightMin: {
       type: DataTypes.SMALLINT,
      //Esto lo hice porque el test no pasaba mi posicion es
-     //allowNull: false,
-      allowNull: true,
+     allowNull: false,
+     // allowNull: true,
                 },
     weightMin: {
       type: DataTypes.SMALLINT,
       //Esto lo hice porque el test no pasaba mi posicion es
-     //allowNull: false,
-     allowNull: true,
+     allowNull: false,
+     //allowNull: true,
                },
      weightMax: {
       type: DataTypes.SMALLINT,
       //Esto lo hice porque el test no pasaba mi posicion es
-     //allowNull: false,
-     allowNull: true,
+     allowNull: false,
+     //allowNull: true,
                 },
      oldYearMin: {
       type: DataTypes.SMALLINT,
-     //allowNull: false,
+     allowNull: false,
                  },
      oldYearMax: {
       type: DataTypes.SMALLINT,
-     //allowNull: false,
+     allowNull: false,
                  },
       createdFor: { 
       type: DataTypes.ENUM('API', 'USER'),
@@ -54,6 +55,5 @@ module.exports = (sequelize) => {
   {timestamps: false} // aca me elimino el  createdAt | updatedAt de la tabla dog
   );
 
-  
 };
 
