@@ -77,12 +77,12 @@ export const movepage = (pagination) => {
   // let [aux] =[pagination.idPagei[1],
   //             pagination.idPagei[2],
   //             pagination.idPagei[3]]
-  if(pagination.iddirect==='back'){
-    pagination.iddirect='';
-    pagination.idPagei[1]=pagination.idPageTo+1; 
-    pagination.idPagei[2]=pagination.idPageTo+1;
-    pagination.idPagei[3]=pagination.idPageTo-1;
-  }
+  // if(pagination.iddirect==='back'){
+  //   pagination.iddirect='';
+  //   pagination.idPagei[1]=pagination.idPageTo+1; 
+  //   pagination.idPagei[2]=pagination.idPageTo+1;
+  //   pagination.idPagei[3]=pagination.idPageTo-1;
+  // }
   // if(pagination.idPageNow === pagination.idPageTo){
   //   pagination.idPagei[1]=pagination.idPageTo+2; 
   //   pagination.idPagei[2]=pagination.idPageTo;
@@ -92,7 +92,7 @@ export const movepage = (pagination) => {
   //   pagination.idPagei[2]=pagination.idPageTo;
   //   pagination.idPagei[3]=pagination.idPageTo+1;}
     
-  else {/*pagination.idPageNow = pagination.idPageTo*/};
+  // else {/*pagination.idPageNow = pagination.idPageTo*/};
   return {
   type: MOVE_PAGE,
   payload: pagination, 

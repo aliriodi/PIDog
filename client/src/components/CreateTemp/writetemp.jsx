@@ -11,10 +11,10 @@ export default class WRITETEMP extends Component {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ temperament:  this.props.temperament.toString() })
       };
-      fetch('http://localhost:3001/temperaments', requestOptions)
+      fetch('http://localhost:3001/temperaments/', requestOptions)
           .then(response => response.json())
           .then(data => this.setState({ temperament: data.temperament }));
-      }
+      } 
     }
     render() {
       return (

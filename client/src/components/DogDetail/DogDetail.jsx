@@ -7,9 +7,7 @@ import { getAllDogs /*, movepage*/ } from "../../redux/actions";
 // Fijense en los test que SI O SI tiene que ser un class component, de otra forma NO VAN A PASAR LOS TEST.
 
 export class DogDetail extends Component {
-  constructor(props) {
-    super(props);
-  }
+  
   componentDidMount() {
     this.props.getAllDogs();
    

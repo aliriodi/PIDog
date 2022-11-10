@@ -15,12 +15,12 @@ const ProductCard = (props) => {
     <div>
     
     <Link to={`/dogs/${props.name}`}>  </Link>
-   
-    <h3>{props.name}</h3>
+       <h3>{props.name}</h3>
     <img className="image" src={props.image}  alt={props.name}/>
     <p>Temperament: {props.temperament}</p>
     <p>Weight: {props.weight}</p>
     <p>Height: {props.height}</p>
+    
 
     </div>
   );

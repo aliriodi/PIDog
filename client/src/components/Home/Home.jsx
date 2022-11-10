@@ -12,14 +12,21 @@ export class Home extends Component {
     this.props.getAllDogs();
    
   }
+  
   render() {
-    return (
+    const dogs2 =[];
+    function pasarLista(perro, indice) {
+      dogs2.push(perro);
+      ;}
+  
+       return (
       <div class="flex-container"> 
 
-       <div class="flex-item">Box 1          
+       <div class="flex-item">         
         { 
         this.props.dogs &&
-          this.props.dogs.map((curr) => {
+          this.props.dogs.slice(8*(this.props.pagination.idPageNow-1),
+          8*(this.props.pagination.idPageNow-1)+8).map((curr) => {
             return (
               <ProductCard
                 key={curr.id}
@@ -29,6 +36,7 @@ export class Home extends Component {
                 weight={curr.weight.metric}
                 height={curr.height.metric}
                 image={curr.image.url}
+                
               />
             );
           })}

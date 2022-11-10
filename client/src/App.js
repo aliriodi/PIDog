@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+
 //import React, { useEffect ,useState} from 'react';
 import { Route,Switch,} from "react-router-dom";
 import Home from "./components/Home/Home";
@@ -28,4 +29,5 @@ function App() {
       </div>
   );
 }
+
 export default App;

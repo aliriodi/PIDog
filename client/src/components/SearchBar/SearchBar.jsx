@@ -2,7 +2,6 @@ import React , { useState } from "react";
 //import {/*Link, Routes, Route,*/ useNavigate} from 'react-router-dom';
 //import { useNavigate } from "react-router"
 import {connect} from 'react-redux';
-import DogDetail from "../DogDetail/DogDetail";
 import { getDogDetail } from "../../redux/actions";
 //import React, { useState, useEffect } from 'react';
 
