@@ -109,18 +109,15 @@ return fetch("https://api.thedogapi.com/v1/breeds?api_key="+process.env.API_TOKE
   /**Para probar la promesa descomentar la siguiente linea */
   //promesa2();
 
-  function readJson () {
+  function ordenarAsc (){
+     fetch("http://localhost:3001/dogs")
+          .then((response) => response.json())
+          .then((json)=>json.sort(function(a,b){return a.name.localeCompare(b.name,'en',{numeric:true})}))
+          //.then((ordenado)=>console.log(ordenado))
+          .then((revertiendo)=>revertiendo.sort(function(a,b){return b.name.localeCompare(a.name,'en',{numeric:true})}))
+          .then((alreves)=>console.log(alreves))
+        //  .then((json) => console.log(json))
+    }
 
-    console.log('this'+ ' ' +this)
-    let vm = this
-    // http://localhost:8080
-    fetch('/archivo.json')
-    .then((response) => response.json())
-    .then((json) => console.log('json  ' +json)
-    ).catch(function () {
-        vm.dataError = true
-    })
- }
-
-   readJson()
+    ordenarAsc();
  //export {objectToSave1}; 

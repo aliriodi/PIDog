@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import {connect} from 'react-redux'
-import { getAllDogs /*, movepage*/ } from "../../redux/actions";
+import { getAllDogs  } from "../../redux/actions";
 import ProductCard from "../../components/ProductCard/ProductCard";
 
 import './Home.css'

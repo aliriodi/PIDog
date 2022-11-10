@@ -23,27 +23,39 @@ export  class Nav extends Component {
     this.Ultimo22   = this.Ultimo22.bind(this) ;
     this.Avanzar   = this.Avanzar.bind(this) ;
     this.idPageMax = this.idPageMax.bind(this);
-    /* this.ORDEN1 = this.ORDEN1.bind(this);*/
+    this.ORDEN1 = this.ORDEN1.bind(this);
+    this.ORDEN2 = this.ORDEN2.bind(this);
      }
 
      idPageMax() {return Math.ceil(this.props.dogs.length/8)}
      /** */   
-     /* ORDEN1() {
-      const b = this.props.dogs(((a) => a.this.props.dogs.name));
+      ORDEN1() {
+       this.props.dogs.sort(function(a,b){return a.name.localeCompare(b.name,'en',{numeric:true})});
+       //voy a usar la propiedad this.props.pagination.idPageMax para estabelcer el orden
+       //idPageMax = 1 ordenar ascendente
+       this.props.movepage({idPageInit:1,idPageMax:1,idPageTo:1,
+        idPageNow:1,idPagei:[1,2,3,4,this.idPageMax()],iddirect:'Orden Ascendente',})
 
-     } */
+     } 
+     ORDEN2() {
+      this.props.dogs.sort(function(b,a){return a.name.localeCompare(b.name,'en',{numeric:true})});
+      //voy a usar la propiedad this.props.pagination.idPageMax para estabelcer el orden
+      //idPageMax = -1 ordenar DESCENDENTE
+      this.props.movepage({idPageInit:1,idPageMax:-1,idPageTo:1,
+       idPageNow:1,idPagei:[1,2,3,4,this.idPageMax()],iddirect:'Orden Descendente',})
+    } 
     Retornar1() {
       //Llamo la funcion de dispatch de mapDispatchToProps
       //y asigno nuevos valores
       
-      this.props.movepage({idPageInit:1,idPageMax:this.idPageMax(),idPageTo:1,
+      this.props.movepage({idPageInit:1,idPageMax:22,idPageTo:1,
                            idPageNow:1,idPagei:[1,2,3,4,this.idPageMax()],iddirect:'',})
        };
     /** */
     Ira2() { 
        if(this.props.pagination.idPagei[1]===2 &&
           this.props.pagination.idPageNow !== 2){
-           this.props.movepage({idPageInit:1,idPageMax:this.idPageMax(),idPageTo:1,
+           this.props.movepage({idPageInit:1,idPageMax:22,idPageTo:1,
             idPageNow:2,idPagei:[1,2,3,4,this.idPageMax()],iddirect:'',})}
        else if (this.props.pagination.idPagei[1]>2){
         const idPagei = [];
@@ -53,7 +65,7 @@ export  class Nav extends Component {
         idPagei.push(this.props.pagination.idPagei[2]-=1);
         idPagei.push(this.props.pagination.idPagei[3]-=1);
         idPagei.push(this.idPageMax());
-        this.props.movepage({idPageInit:1,idPageMax:this.idPageMax(),idPageTo:1,
+        this.props.movepage({idPageInit:1,idPageMax:22,idPageTo:1,
           idPageNow:idPageNow,idPagei:idPagei,iddirect:'',})
        };
 
@@ -68,7 +80,7 @@ export  class Nav extends Component {
        idPagei.push(this.props.pagination.idPagei[2]);
        idPagei.push(this.props.pagination.idPagei[3]);
        idPagei.push(22);
-       this.props.movepage({idPageInit:1,idPageMax:this.idPageMax(),idPageTo:1,
+       this.props.movepage({idPageInit:1,idPageMax:22,idPageTo:1,
          idPageNow:idPageNow,idPagei:idPagei,iddirect:'',});
         }
         } 
@@ -77,7 +89,7 @@ export  class Nav extends Component {
       if((this.props.pagination.idPagei[3]<4 ||
          this.props.pagination.idPagei[3]===this.idPageMax()-1 )&&
          this.props.pagination.idPageNow !== 4){
-          this.props.movepage({idPageInit:1,idPageMax:this.idPageMax(),idPageTo:1,
+          this.props.movepage({idPageInit:1,idPageMax:22,idPageTo:1,
            idPageNow:this.props.pagination.idPagei[3],
            idPagei:[1,this.props.pagination.idPagei[1],
                       this.props.pagination.idPagei[2],
@@ -201,7 +213,9 @@ export  class Nav extends Component {
                <button className={(this.props.pagination.idPagei[3]===this.props.pagination.idPageNow)?"pageidNow":"pageid"}  onClick={()=>this.Ira4()}>       {this.props.pagination.idPagei[3]} </button>  ... 
                <button  className={(this.props.pagination.idPagei[4]===this.props.pagination.idPageNow)?"pageidNow":"pageid"} onClick={()=>this.Ultimo22()}>   {this.idPageMax()} </button>
                <button  className="pageid"  onClick={()=>this.Avanzar()}>    {'NEXT ==>'}</button> 
-               {/*<button  className="pageid"  onClick={()=>this.ORDEN1()}>    {'ORDEN ASCENDENTE'}</button> */}
+               {'   ............      '}
+               <button  className="pageid"  onClick={()=>this.ORDEN1()}>    {'ASCENDENTE'}</button> 
+               <button  className="pageid"  onClick={()=>this.ORDEN2()}>    {'DESCENDENTE'}</button> 
              <p></p>
                </Route>
                </div>
